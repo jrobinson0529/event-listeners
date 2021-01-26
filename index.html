@@ -25,7 +25,49 @@
       <div id="pies" class="d-flex flex-wrap justify-content-center" class="m-5"></div>
       <hr>
       <div class="pie-form">
+        <form id="pieForm">
 
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required="true">
+          </div>
+
+          <div class="mb-3">
+            <label for="ingredients" class="form-label">Ingredients</label>
+            <input type="text" class="form-control" id="ingredients" required="true">
+          </div>
+
+          <div class="mb-3">
+            <label for="bakeTemp" class="form-label">Baking Temperature</label>
+            <input type="number" class="form-control" id="bakeTemp" required="true">
+          </div>
+
+          <div class="mb-3">
+            <label for="drinkPairing" class="form-label">Drink Pairing</label>
+            <input type="text" class="form-control" id="drinkPairing" required="true">
+          </div>
+
+          <div class="mb-3">
+            <label for="imageUrl" class="form-label">Image Url</label>
+            <input type="url" class="form-control" id="imageUrl" required="true">
+          </div>
+
+          <div class="mb-3">
+            <label for="instructor" class="form-label">Instructor</label>
+            <select class="form-control" name="instructor" id="instructor" required="true">
+              <option value="Doc" selected>Doc</option>
+              <option value="Aja">Aja</option>
+              <option value="Trin">Trin</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="iceCream" class="form-label">Ice Cream Pairing</label>
+            <input type="text" class="form-control" id="iceCream" required="true">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
 

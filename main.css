@@ -1,4 +1,6 @@
-body {background-color: #ffebcd}
+body {
+  background-color: #ffebcd;
+}
 .img-container {
   height: 200px;
   background-size: cover;

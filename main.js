@@ -60,7 +60,8 @@ const pies = [
     iceCream: 'none',
   },
 ];
-
+// let selectedPies = [];
+// let filtered = true;
 
 const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.querySelector(divId);
@@ -109,12 +110,15 @@ const handleButtonClick = (e) => {
   for (let i = 0; i < pies.length; i++) {
     if (pies[i].instructor === buttonId) {
       selectedPies.push(pies[i]);
+      
     }
     
   }
   if (buttonId === 'All') {
     pieBuilder(pies);
+    filtered = false;
   } else {
+    filtered = true;
     pieBuilder(selectedPies);
   }
 };
@@ -146,6 +150,17 @@ const getFormInfo = (e) => {
   pieBuilder(pies);
   document.querySelector('form').reset();
 };
+// D in CRUD: Delete pies!
+const deletePie = (e) => {
+  const targetType = e.target.type;
+  const targetId = e.target.id;
+
+  if (targetType === 'button') {
+    // DELETE CARD THAT BUTTON IS ON
+    pies.splice(targetId, 1);
+    pieBuilder(pies);
+  }
+};
 
 
 const buttonEvents = () => {
@@ -153,6 +168,9 @@ const buttonEvents = () => {
   document.querySelector('#Doc').addEventListener('click', handleButtonClick);
   document.querySelector('#Aja').addEventListener('click', handleButtonClick);
   document.querySelector('#Trin').addEventListener('click', handleButtonClick);
+
+  document.querySelector('#pies').addEventListener('click', deletePie);
+
   document.querySelector('form').addEventListener('submit', getFormInfo);
 };
 

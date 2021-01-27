@@ -86,7 +86,24 @@ const pieBuilder = (taco) => {
   // }
 
   // Refactored to use array method .forEach
-  taco.forEach((item, i) => {
+
+  // taco.forEach((item, i) => {
+  //   domString += `<div class="card my-2 mx-2" style="width: 18rem;" id=${i}>
+  //                   <div class="img-container" style="background-image: url('${item.imageUrl}');"></div>
+  //                   <div class="card-body">
+  //                     <p class="card-text">${item.name}</p>
+  //                     <p class="card-text">${item.ingredients}</p>
+  //                     <p class="card-text">${item.bakeTemp}</p>
+  //                     <p class="card-text">${item.drinkPairing}</p>
+  //                     <p class="card-text">${item.iceCream}</p>
+  //                     <button type="button" class="btn btn-danger" id="${i}">Delete</button>
+  //                   </div>
+  //                 </div>`;
+  // });
+
+  // for... of loop refactoring of above 
+  for (const item of taco) {                 
+    const i = taco.indexOf(item);
     domString += `<div class="card my-2 mx-2" style="width: 18rem;" id=${i}>
                     <div class="img-container" style="background-image: url('${item.imageUrl}');"></div>
                     <div class="card-body">
@@ -98,7 +115,7 @@ const pieBuilder = (taco) => {
                       <button type="button" class="btn btn-danger" id="${i}">Delete</button>
                     </div>
                   </div>`;
-  });
+  }
 
   printToDom("#pies", domString);
 };

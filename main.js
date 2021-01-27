@@ -118,6 +118,34 @@ const handleButtonClick = (e) => {
     pieBuilder(selectedPies);
   }
 };
+// C in CRUD: Created new pies!
+const getFormInfo = (e) => {
+  // stops page from refreshing
+  e.preventDefault();
+  // Grab input from form fields
+  const name = document.querySelector('#name').value;
+  const ingredients = document.querySelector('#ingredients').value;
+  const bakeTemp = document.querySelector('#bakeTemp').value;
+  const drinkPairing = document.querySelector('#drinkPairing').value;
+  const imageUrl = document.querySelector('#imageUrl').value;
+  const instructor = document.querySelector('#instructor').value;
+  const iceCream = document.querySelector('#iceCream').value;
+  // Short hand object notation
+  const obj = {
+    name,
+    bakeTemp,
+    ingredients,
+    drinkPairing,
+    imageUrl,
+    instructor,
+    iceCream,
+  };
+  // Pushing new object to pies array
+  pies.push(obj);
+  // Rebuilding the dom
+  pieBuilder(pies);
+  document.querySelector('form').reset();
+};
 
 
 const buttonEvents = () => {
@@ -125,7 +153,7 @@ const buttonEvents = () => {
   document.querySelector('#Doc').addEventListener('click', handleButtonClick);
   document.querySelector('#Aja').addEventListener('click', handleButtonClick);
   document.querySelector('#Trin').addEventListener('click', handleButtonClick);
-
+  document.querySelector('form').addEventListener('submit', getFormInfo);
 };
 
 
